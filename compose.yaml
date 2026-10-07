@@ -1,0 +1,17 @@
+# Local Node via Docker. The app itself stays a standard Next.js project for Vercel.
+# HOST_UID and HOST_GID are set by scripts/docker.sh so files are not root-owned.
+services:
+  web:
+    image: node:22-bookworm
+    working_dir: /app
+    user: "${HOST_UID}:${HOST_GID}"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      HOME: /tmp
+      npm_config_cache: /tmp/npm-cache
+      NEXT_TELEMETRY_DISABLED: "1"
+    entrypoint: ["npm"]
+    command: ["run", "dev", "--", "--hostname", "0.0.0.0", "--port", "3000"]
