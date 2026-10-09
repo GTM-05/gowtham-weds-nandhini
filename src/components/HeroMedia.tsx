@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { WeddingImage } from "@/components/WeddingImage";
+import Image from "next/image";
 import { useRef } from "react";
 
 export function HeroMedia({
@@ -27,11 +27,12 @@ export function HeroMedia({
         className="absolute inset-0 size-full translate-y-[5%] sm:-inset-10 sm:size-auto"
         style={reduce ? undefined : { y }}
       >
-        <WeddingImage
+        <Image
           src={src}
           alt={alt}
           fill
           priority
+          unoptimized
           sizes="100vw"
           className="animate-kenburns object-cover"
           style={{ objectPosition, transformOrigin: objectPosition }}

@@ -1,4 +1,4 @@
-import { WeddingImage } from "@/components/WeddingImage";
+import Image from "next/image";
 import { wedding } from "@/data/wedding";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/ornaments";
@@ -24,11 +24,12 @@ export function OurStory() {
                   className={`w-full ${reversed ? "md:order-2" : ""}`}
                 >
                   <div className="relative aspect-[4/3] overflow-hidden border border-gold/35 bg-beige">
-                    <WeddingImage
+                    <Image
                       src={chapter.image}
                       alt={chapter.imageAlt}
                       width={chapter.width}
                       height={chapter.height}
+                      unoptimized
                       sizes="(min-width: 768px) 45vw, 100vw"
                       className="size-full object-cover"
                     />
