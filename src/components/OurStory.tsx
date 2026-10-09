@@ -10,7 +10,7 @@ export function OurStory() {
         <SectionHeading
           eyebrow="A love, unfolding"
           title="Our Story"
-          description="A short story, waiting for your own words and pictures."
+          description="From a quiet hello to sacred flowers and the day we wed—a little of our journey, told with love."
         />
         <div className="relative space-y-16 md:space-y-24">
           <div className="absolute bottom-0 left-4 top-0 hidden w-px bg-gradient-to-b from-transparent via-gold to-transparent md:left-1/2 md:block" aria-hidden="true" />

@@ -72,10 +72,10 @@ body {
 
 @keyframes kenburns {
   from {
-    transform: scale(1.1) translate3d(0, 0, 0);
+    transform: scale(1.06) translate3d(0, 0, 0);
   }
   to {
-    transform: scale(1) translate3d(0, -2%, 0);
+    transform: scale(1) translate3d(0, -1%, 0);
   }
 }
 
@@ -219,16 +219,34 @@ body {
   animation: chevron 2.2s ease-in-out infinite;
 }
 
+/* Original-style fall: one smooth diagonal drift, linear timing */
 @keyframes petal {
   0% {
-    transform: translate3d(0, -12vh, 0) rotate(0deg);
+    transform: translate3d(0, var(--py0, -12vh), 0) rotate(var(--r0, 0deg));
     opacity: 0;
   }
   12% {
     opacity: 0.75;
   }
   100% {
-    transform: translate3d(36px, 108vh, 0) rotate(200deg);
+    transform: translate3d(var(--petal-drift, 36px), 108vh, 0) rotate(var(--r1, 200deg));
+    opacity: 0;
+  }
+}
+
+@keyframes petal-burst-in {
+  0% {
+    transform: translate3d(0, var(--py0, -12vh), 0) rotate(var(--r0, 0deg));
+    opacity: 0;
+  }
+  3% {
+    opacity: 0.85;
+  }
+  12% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(var(--petal-drift, 36px), 108vh, 0) rotate(var(--r1, 200deg));
     opacity: 0;
   }
 }
@@ -237,6 +255,11 @@ body {
   animation-name: petal;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.petal-burst {
+  animation-name: petal-burst-in;
 }
 
 @keyframes music-bar {
@@ -266,6 +289,7 @@ body {
   .glow-pulse,
   .animate-chevron,
   .petal,
+  .petal-burst,
   .music-bar {
     animation: none !important;
   }

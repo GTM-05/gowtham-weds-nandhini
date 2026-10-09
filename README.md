@@ -2,7 +2,7 @@
 
 A wedding invitation site for Gowtham and Nandhini. Wedding details live in one file, `src/data/wedding.ts`. Colours live in `src/theme/theme.ts`.
 
-Replace the photographs in `public/images/` without renaming them, and replace `public/audio/wedding.wav` if you want different music. The music button never autoplays.
+Replace the photographs in `public/images/` without renaming them. Wedding music is set in `src/data/wedding.ts` (`musicSrc`, currently `public/audio/Nayanthara-Intro-BGM.mp3`). The music button never autoplays.
 
 ## Update the invitation
 

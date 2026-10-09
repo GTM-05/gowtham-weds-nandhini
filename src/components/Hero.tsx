@@ -1,23 +1,66 @@
 import { HeroMedia } from "@/components/HeroMedia";
 import { wedding } from "@/data/wedding";
+import type { CSSProperties } from "react";
 
-const petals = [
-  { left: "4%", delay: "0s", duration: "18s", size: 16, rotate: "-18deg" },
-  { left: "14%", delay: "5s", duration: "22s", size: 11, rotate: "14deg" },
-  { left: "24%", delay: "9s", duration: "19s", size: 13, rotate: "-8deg" },
-  { left: "38%", delay: "2s", duration: "24s", size: 10, rotate: "20deg" },
-  { left: "52%", delay: "7s", duration: "20s", size: 15, rotate: "-16deg" },
-  { left: "66%", delay: "1s", duration: "21s", size: 12, rotate: "10deg" },
-  { left: "78%", delay: "6s", duration: "18s", size: 14, rotate: "-22deg" },
-  { left: "90%", delay: "11s", duration: "23s", size: 11, rotate: "8deg" },
-];
+type Petal = {
+  id: string;
+  left: string;
+  delay: string;
+  duration: string;
+  size: number;
+  tone: string;
+  burst: boolean;
+  vars: CSSProperties;
+};
+
+function mix(i: number, salt: number) {
+  return ((i * 9301 + salt * 49297) % 233280) / 233280;
+}
+
+function buildPetals(): Petal[] {
+  const tones = ["bg-ivory/85", "bg-gold-bright/55", "bg-[#f5d0d8]/75"];
+
+  return Array.from({ length: 46 }, (_, i) => {
+    const burst = i < 32;
+    const delay = burst ? mix(i, 1) * 1.6 : 2 + mix(i, 2) * 11;
+    const duration = 14 + mix(i, 3) * 11;
+    const left = -8 + mix(i, 4) * 116;
+    const size = 5 + Math.floor(mix(i, 5) * 4);
+    const startY = -(14 + mix(i, 6) * 20);
+    const drift = (mix(i, 7) - 0.5) * 110;
+    const r0 = mix(i, 8) * 50 - 25;
+    const r1 = 165 + mix(i, 9) * 75;
+
+    return {
+      id: `p-${i}`,
+      left: `${left.toFixed(2)}%`,
+      delay: `${delay.toFixed(3)}s`,
+      duration: `${duration.toFixed(2)}s`,
+      size,
+      tone: tones[i % tones.length],
+      burst,
+      vars: {
+        "--py0": `${startY.toFixed(1)}vh`,
+        "--petal-drift": `${drift.toFixed(1)}px`,
+        "--r0": `${r0.toFixed(1)}deg`,
+        "--r1": `${r1.toFixed(1)}deg`,
+      },
+    };
+  });
+}
+
+const petals = buildPetals();
 
 export function Hero() {
   const { groom, bride, hero } = wedding;
 
   return (
     <section id="home" className="relative isolate flex min-h-[100svh] items-end justify-center overflow-hidden bg-wine text-ivory sm:items-center">
-      <HeroMedia src={hero.image} alt={hero.imageAlt} />
+      <HeroMedia
+        src={hero.image}
+        alt={hero.imageAlt}
+        objectPosition={hero.imageObjectPosition}
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-wine/75 via-wine/40 to-wine/85" />
       <div className="vignette absolute inset-0" />
       <div className="grain absolute inset-0" aria-hidden="true" />
@@ -25,16 +68,18 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         {petals.map((petal) => (
           <span
-            key={`${petal.left}-${petal.delay}`}
-            className="petal absolute top-0 block rounded-[50%_50%_50%_0] bg-ivory/80"
-            style={{
-              left: petal.left,
-              width: petal.size,
-              height: petal.size * 1.5,
-              animationDelay: petal.delay,
-              animationDuration: petal.duration,
-              rotate: petal.rotate,
-            }}
+            key={petal.id}
+            className={`petal absolute -top-10 block rounded-[50%_50%_50%_0] ${petal.burst ? "petal-burst" : ""} ${petal.tone}`}
+            style={
+              {
+                left: petal.left,
+                width: petal.size,
+                height: petal.size * 1.45,
+                animationDelay: petal.delay,
+                animationDuration: petal.duration,
+                ...petal.vars,
+              } as CSSProperties
+            }
           />
         ))}
       </div>

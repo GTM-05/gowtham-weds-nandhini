@@ -89,6 +89,8 @@ export const wedding = {
     name: "Gowtham",
     portrait: "/images/groom.jpg",
     portraitAlt: "Placeholder portrait for Gowtham",
+    /** Nudge crop so the top of the portrait is not clipped (object-position). */
+    portraitObjectPosition: "center 28%",
   },
   bride: {
     name: "Nandhini",
@@ -98,6 +100,8 @@ export const wedding = {
   hero: {
     image: "/images/hero.jpg",
     imageAlt: "Cinematic placeholder for Gowtham and Nandhini's wedding portrait",
+    /** Shows a little more above the couple so heads are not clipped. */
+    imageObjectPosition: "center 22%",
     eyebrow: "Together with their families",
     line: "are getting married",
     dateLabel: "Monday, 16 November 2026",
@@ -110,7 +114,7 @@ export const wedding = {
   location: "Kanyakumari, Tamil Nadu",
   googleMapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Panimaya%20Annai%20Marriage%20Hall%2C%20South%20Thamarai%20Kulam%2C%20Thenthamaraikulam%2C%20Kanyakumari",
-  musicSrc: "/audio/wedding.wav",
+  musicSrc: "/audio/Nayanthara-Intro-BGM.mp3",
   engagement,
   reception,
   muhurtham,
@@ -118,18 +122,30 @@ export const wedding = {
     {
       id: "met",
       title: "We met",
-      text: "A quiet beginning, the kind that only makes sense afterwards. The story of how Gowtham and Nandhini met will be written here.",
+      text:
+        "Some love stories begin like a spark; ours grew softly—in shared laughter, easy trust, and the quiet knowing that home can be a person. Gowtham and Nandhini found each other, and from that day, the rest of the path felt clearer.",
       image: "/images/couple-1.jpg",
-      imageAlt: "Illustration of Gowtham and Nandhini when they met",
+      imageAlt: "Gowtham and Nandhini when their story began",
+      width: 1152,
+      height: 864,
+    },
+    {
+      id: "flowers",
+      title: "Flowers & our promise",
+      text:
+        "On Tuesday, 29 September 2026, in the gentle Tamil way, we kept flowers together—the sacred step where families bless a union before the wedding. With garlands exchanged and hearts already sure, we began our journey toward marriage, grateful and full of hope.",
+      image: "/images/couple-2.jpg",
+      imageAlt: "Gowtham and Nandhini at their flower-keeping ceremony",
       width: 1152,
       height: 864,
     },
     {
       id: "forever",
       title: "Forever begins",
-      text: "With the blessings of both families, a new home and a shared life are about to begin. This chapter opens on the wedding day.",
-      image: "/images/couple-2.jpg",
-      imageAlt: "Illustration of Gowtham and Nandhini as their life together begins",
+      text:
+        "With the blessings of both families, we step into married life on our wedding day—same silly jokes, steadier dreams, and a promise to choose each other, in every season. This is where forever officially begins.",
+      image: "/images/hero.jpg",
+      imageAlt: "Gowtham and Nandhini on their wedding day",
       width: 1152,
       height: 864,
     },

@@ -4,7 +4,15 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import Image from "next/image";
 import { useRef } from "react";
 
-export function HeroMedia({ src, alt }: { src: string; alt: string }) {
+export function HeroMedia({
+  src,
+  alt,
+  objectPosition = "center",
+}: {
+  src: string;
+  alt: string;
+  objectPosition?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({
@@ -15,8 +23,19 @@ export function HeroMedia({ src, alt }: { src: string; alt: string }) {
 
   return (
     <div ref={ref} className="absolute inset-0 overflow-hidden">
-      <motion.div className="absolute -inset-8" style={reduce ? undefined : { y }}>
-        <Image src={src} alt={alt} fill priority sizes="100vw" className="animate-kenburns object-cover" />
+      <motion.div
+        className="absolute -inset-10 translate-y-[5%]"
+        style={reduce ? undefined : { y }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          priority
+          sizes="100vw"
+          className="animate-kenburns object-cover"
+          style={{ objectPosition, transformOrigin: objectPosition }}
+        />
       </motion.div>
     </div>
   );
