@@ -2,6 +2,13 @@ import { HeroMedia } from "@/components/HeroMedia";
 import { wedding } from "@/data/wedding";
 import type { CSSProperties } from "react";
 
+type PetalStyleVars = {
+  "--py0": string;
+  "--petal-drift": string;
+  "--r0": string;
+  "--r1": string;
+};
+
 type Petal = {
   id: string;
   left: string;
@@ -10,7 +17,7 @@ type Petal = {
   size: number;
   tone: string;
   burst: boolean;
-  vars: CSSProperties;
+  vars: PetalStyleVars;
 };
 
 function mix(i: number, salt: number) {
@@ -77,7 +84,7 @@ export function Hero() {
                 height: petal.size * 1.45,
                 animationDelay: petal.delay,
                 animationDuration: petal.duration,
-                ...petal.vars,
+                ...(petal.vars as CSSProperties),
               } as CSSProperties
             }
           />
