@@ -283,6 +283,20 @@ body {
   animation: music-bar 0.9s ease-in-out infinite;
 }
 
+/* iOS Safari can leave opacity-0 keyframe animations stuck; keep hero copy readable */
+@supports (-webkit-touch-callout: none) {
+  .rise,
+  .name-reveal,
+  .line-grow,
+  .frame-in,
+  .ampersand-glow {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-kenburns,
   .rise,

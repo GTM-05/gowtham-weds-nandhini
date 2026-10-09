@@ -1,7 +1,6 @@
 import { wedding } from "@/data/wedding";
 import { mapsHref } from "@/lib/utils";
 import { buttonClasses, SectionHeading } from "@/components/ornaments";
-import { Reveal } from "@/components/Reveal";
 import { MapPin } from "lucide-react";
 
 export function Venue() {
@@ -45,7 +44,7 @@ export function Venue() {
           </div>
         </div>
 
-        <Reveal variant="image" className="relative min-h-[22rem] overflow-hidden border border-gold/40 bg-wine text-ivory">
+        <div className="relative min-h-[22rem] overflow-hidden border border-gold/40 bg-wine text-ivory">
           <div className="absolute inset-0" aria-hidden="true">
           <div className="kolam absolute inset-0 opacity-80" />
           <svg viewBox="0 0 640 480" className="absolute inset-0 h-full w-full opacity-70">
@@ -63,7 +62,7 @@ export function Venue() {
             <p className="text-xs uppercase tracking-[0.22em] text-ivory/60">Directions open in Google Maps</p>
           </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
