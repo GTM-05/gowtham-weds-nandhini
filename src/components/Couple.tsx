@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { WeddingImage } from "@/components/WeddingImage";
 import { wedding } from "@/data/wedding";
 import { GoldDivider } from "@/components/ornaments";
 import { Reveal } from "@/components/Reveal";
@@ -18,7 +18,7 @@ function Portrait({
     <figure className="flex flex-col items-center text-center">
       <div className="relative">
         <div className="arch-frame relative h-[26rem] w-[16.5rem] overflow-hidden border border-gold/50 bg-beige shadow-[0_24px_60px_rgba(20,8,12,0.08)] sm:h-[32rem] sm:w-[20rem]">
-          <Image
+          <WeddingImage
             src={src}
             alt={alt}
             fill

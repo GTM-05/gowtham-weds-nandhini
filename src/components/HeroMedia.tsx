@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
+import { WeddingImage } from "@/components/WeddingImage";
 import { useRef } from "react";
 
 export function HeroMedia({
@@ -24,10 +24,10 @@ export function HeroMedia({
   return (
     <div ref={ref} className="absolute inset-0 overflow-hidden">
       <motion.div
-        className="absolute -inset-10 translate-y-[5%]"
+        className="absolute inset-0 size-full translate-y-[5%] sm:-inset-10 sm:size-auto"
         style={reduce ? undefined : { y }}
       >
-        <Image
+        <WeddingImage
           src={src}
           alt={alt}
           fill

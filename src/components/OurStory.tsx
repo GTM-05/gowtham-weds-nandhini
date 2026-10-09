@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { WeddingImage } from "@/components/WeddingImage";
 import { wedding } from "@/data/wedding";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/ornaments";
@@ -18,14 +18,19 @@ export function OurStory() {
             const reversed = index % 2 === 1;
             return (
               <article key={chapter.id} className="grid items-center gap-8 md:grid-cols-2 md:gap-20">
-                <Reveal variant="image" delay={index * 0.05} className={reversed ? "md:order-2" : undefined}>
+                <Reveal
+                  variant="scale"
+                  delay={index * 0.05}
+                  className={`w-full ${reversed ? "md:order-2" : ""}`}
+                >
                   <div className="relative aspect-[4/3] overflow-hidden border border-gold/35 bg-beige">
-                    <Image
+                    <WeddingImage
                       src={chapter.image}
                       alt={chapter.imageAlt}
-                      fill
+                      width={chapter.width}
+                      height={chapter.height}
                       sizes="(min-width: 768px) 45vw, 100vw"
-                      className="object-cover"
+                      className="size-full object-cover"
                     />
                   </div>
                 </Reveal>

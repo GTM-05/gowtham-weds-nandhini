@@ -40,7 +40,7 @@ export function Reveal({ children, className, delay = 0, variant = "up" }: Revea
       className={className}
       initial={hidden[variant]}
       whileInView={shown[variant]}
-      viewport={{ once: true, margin: "0px 0px -12% 0px" }}
+      viewport={{ once: true, margin: "0px 0px -48px 0px", amount: 0.2 }}
       transition={{ duration: variant === "image" ? 1.05 : 0.85, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
