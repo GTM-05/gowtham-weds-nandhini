@@ -23,6 +23,8 @@ function Portrait({
             alt={alt}
             fill
             unoptimized
+            loading="eager"
+            decoding="async"
             sizes="(min-width: 768px) 320px, 70vw"
             className="object-cover"
             style={{ objectPosition }}
@@ -50,22 +52,22 @@ export function Couple() {
           <GoldDivider className="mt-6" />
         </Reveal>
         <div className="mt-14 flex flex-col items-center gap-12 md:mt-16 md:flex-row md:items-start md:justify-center md:gap-8">
-          <Reveal variant="scale" className="w-full md:w-auto">
+          <div className="couple-portrait w-full md:w-auto">
             <Portrait
               src={groom.portrait}
               alt={groom.portraitAlt}
               name={groom.name}
               objectPosition={groom.portraitObjectPosition}
             />
-          </Reveal>
+          </div>
           <div className="float-soft flex items-center gap-4 md:mt-48 md:flex-col" aria-hidden="true">
             <span className="h-px w-10 bg-gold md:h-16 md:w-px" />
             <span className="font-script text-5xl text-gold-deep">&amp;</span>
             <span className="h-px w-10 bg-gold md:h-16 md:w-px" />
           </div>
-          <Reveal variant="scale" className="w-full md:w-auto" delay={0.15}>
+          <div className="couple-portrait w-full md:w-auto">
             <Portrait src={bride.portrait} alt={bride.portraitAlt} name={bride.name} />
-          </Reveal>
+          </div>
         </div>
         <Reveal>
           <p className="mx-auto mt-14 max-w-2xl text-center text-base leading-relaxed text-ink/75 sm:text-lg">

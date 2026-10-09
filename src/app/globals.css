@@ -45,6 +45,12 @@ body {
   outline-offset: 3px;
 }
 
+/* Helps WebKit paint photos that are not inside animated wrappers */
+.couple-portrait img,
+.story-photo img {
+  transform: translateZ(0);
+}
+
 .grain {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
   mix-blend-mode: overlay;

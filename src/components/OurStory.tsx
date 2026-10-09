@@ -18,11 +18,7 @@ export function OurStory() {
             const reversed = index % 2 === 1;
             return (
               <article key={chapter.id} className="grid items-center gap-8 md:grid-cols-2 md:gap-20">
-                <Reveal
-                  variant="scale"
-                  delay={index * 0.05}
-                  className={`w-full ${reversed ? "md:order-2" : ""}`}
-                >
+                <div className={`story-photo w-full ${reversed ? "md:order-2" : ""}`}>
                   <div className="relative aspect-[4/3] overflow-hidden border border-gold/35 bg-beige">
                     <Image
                       src={chapter.image}
@@ -30,11 +26,13 @@ export function OurStory() {
                       width={chapter.width}
                       height={chapter.height}
                       unoptimized
+                      loading="eager"
+                      decoding="async"
                       sizes="(min-width: 768px) 45vw, 100vw"
                       className="size-full object-cover"
                     />
                   </div>
-                </Reveal>
+                </div>
                 <Reveal variant={reversed ? "left" : "right"} delay={0.12 + index * 0.05} className={reversed ? "md:order-1 md:text-right" : undefined}>
                   <p className="font-script text-3xl text-gold-deep">0{index + 1}</p>
                   <h3 className="mt-2 font-serif text-4xl font-light sm:text-5xl">{chapter.title}</h3>
