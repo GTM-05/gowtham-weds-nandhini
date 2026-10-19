@@ -39,16 +39,16 @@ const engagement: WeddingEvent = {
   title: "Engagement",
   kicker: "The evening before",
   description:
-    "Families gather at Panimaya Annai Marriage Hall in Kanyakumari on the eve of the wedding.",
+    "Families gather at Therivilai, Kanyakumari, on the eve of the wedding.",
   date: "Sunday, 15 November 2026",
   time: "4:00 PM",
-  venue: "Panimaya Annai Marriage Hall",
-  address: "4F4X+VQC, South Thamarai Kulam, Thenthamaraikulam, Kanyakumari District, Tamil Nadu – 629704",
+  venue: "Therivilai",
+  address: "Kanyakumari District, Tamil Nadu – 629703",
   isoStart: "2026-11-15T16:00:00+05:30",
   isoEnd: "",
   allDay: false,
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Panimaya%20Annai%20Marriage%20Hall%2C%20South%20Thamarai%20Kulam%2C%20Thenthamaraikulam%2C%20Kanyakumari",
+    "https://www.google.com/maps/search/?api=1&query=Therivilai%2C%20Kanyakumari%20District%2C%20Tamil%20Nadu%20629703",
 };
 
 const muhurtham: WeddingEvent = {
