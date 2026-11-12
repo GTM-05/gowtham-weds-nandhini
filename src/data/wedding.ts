@@ -39,16 +39,15 @@ const engagement: WeddingEvent = {
   title: "Engagement",
   kicker: "The evening before",
   description:
-    "Families gather at Therivilai, Kanyakumari, on the eve of the wedding.",
+    "Families gather on Murugan Kundram Road, Agasteeswaram, on the eve of the wedding.",
   date: "Sunday, 15 November 2026",
   time: "4:00 PM",
-  venue: "Therivilai",
-  address: "Kanyakumari District, Tamil Nadu – 629703",
+  venue: "Agasteeswaram",
+  address: "Murugan Kundram Rd, Agasteeswaram, Tamil Nadu 629702",
   isoStart: "2026-11-15T16:00:00+05:30",
   isoEnd: "",
   allDay: false,
-  mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Therivilai%2C%20Kanyakumari%20District%2C%20Tamil%20Nadu%20629703",
+  mapsUrl: "https://maps.app.goo.gl/ETdw77cM8RnD2eyd8?g_st=ic",
 };
 
 const muhurtham: WeddingEvent = {

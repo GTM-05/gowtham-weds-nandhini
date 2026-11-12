@@ -29,7 +29,7 @@ export function Venue() {
               </div>
             </dl>
             <p className="text-sm leading-relaxed text-ink/70">
-              Engagement on {wedding.engagement.date} at {wedding.engagement.time}, {wedding.engagement.venue}. Reception on{" "}
+              Engagement on {wedding.engagement.date} at {wedding.engagement.time}, {wedding.engagement.address}. Reception on{" "}
               {wedding.reception.date} at {wedding.reception.time}, {wedding.reception.venue}, {wedding.reception.address}.
             </p>
             {directions ? (
