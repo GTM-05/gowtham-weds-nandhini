@@ -23,3 +23,14 @@ export function mapsHref(eventUrl: string): string | null {
   const value = eventUrl.trim() || wedding.googleMapsUrl.trim();
   return value || null;
 }
+
+/** One readable venue line without repeating town or district names. */
+export function eventLocation(venue: string, address: string): string {
+  const v = venue.trim();
+  const a = address.trim();
+  if (!v) return a;
+  if (!a) return v;
+  if (a.toLowerCase().includes(v.toLowerCase())) return a;
+  if (v.toLowerCase().includes(a.toLowerCase())) return v;
+  return `${v}, ${a}`;
+}

@@ -2,7 +2,7 @@ import { CalendarPlus, Clock, Flower2, Heart, MapPin, Sparkles } from "lucide-re
 import type { ReactNode } from "react";
 import { events, wedding, type WeddingEvent } from "@/data/wedding";
 import { googleCalendarLink } from "@/lib/calendar";
-import { cn, mapsHref } from "@/lib/utils";
+import { cn, eventLocation, mapsHref } from "@/lib/utils";
 import { buttonClasses, SectionHeading } from "@/components/ornaments";
 import { Reveal } from "@/components/Reveal";
 
@@ -25,7 +25,7 @@ function EventCard({ event }: { event: WeddingEvent }) {
   const calendar = googleCalendarLink({
     title: `${wedding.groom.name} & ${wedding.bride.name} — ${event.title}`,
     details: event.description,
-    location: [event.venue, event.address].filter((part) => part && part !== "To be confirmed").join(", "),
+    location: eventLocation(event.venue, event.address),
     startIso: event.isoStart,
     endIso: event.isoEnd,
     allDay: event.allDay,
@@ -63,7 +63,7 @@ function EventCard({ event }: { event: WeddingEvent }) {
       <div className="relative mt-8 grid gap-5">
         <Detail icon={<CalendarPlus className="h-4 w-4" />} label="Date" value={event.date} />
         <Detail icon={<Clock className="h-4 w-4" />} label="Time" value={event.time} />
-        <Detail icon={<MapPin className="h-4 w-4" />} label="Venue" value={`${event.venue}, ${event.address}`} />
+        <Detail icon={<MapPin className="h-4 w-4" />} label="Venue" value={eventLocation(event.venue, event.address)} />
       </div>
       <div className="relative mt-8 flex flex-col gap-3 sm:flex-row">
         {calendar ? (
